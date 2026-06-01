@@ -24,3 +24,12 @@ The lab covers:
 - Managed Identities
 - OpenTelemetry
 - Azure Monitor
+## Azure Container Registry
+
+An Azure Container Registry (ACR) instance was deployed to provide a private container image repository for Container Apps and Azure Kubernetes Service (AKS).
+
+### Configuration
+
+- SKU: Basic
+- Authentication: Azure AD
+- Purpose: Container image storage and distribution
