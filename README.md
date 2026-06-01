@@ -1,9 +1,27 @@
+> Portfolio Project
+>
+> Production-style Azure AI Platform demonstrating secure cloud-native application deployment using Azure Container Apps, Cosmos DB, Key Vault, Managed Identity, and Azure Monitoring.
+
 # Azure AI Platform Engineering Lab
 
 ![Azure](https://img.shields.io/badge/Azure-AI%20Platform-blue)
 ![Containers](https://img.shields.io/badge/Containers-AKS%20%7C%20ACA-green)
 ![Status](https://img.shields.io/badge/Status-In%20Progress-yellow)
 ![AI](https://img.shields.io/badge/AI-Vector%20Search-orange)
+
+## Executive Summary
+
+This project demonstrates the deployment of a secure cloud-native AI platform on Microsoft Azure.
+
+The platform leverages Azure Container Apps for application hosting, Azure Container Registry for image management, Azure Key Vault for secret storage, Azure Cosmos DB for scalable NoSQL data persistence, Managed Identity for credential-free authentication, and Log Analytics for operational monitoring.
+
+The solution follows Azure Well-Architected Framework principles emphasizing:
+
+- Security
+- Reliability
+- Operational Excellence
+- Cost Optimization
+- Performance Efficiency
 
 ## Overview
 
@@ -24,6 +42,8 @@ The lab covers:
 - Managed Identities
 - OpenTelemetry
 - Azure Monitor
+
+
 ## Azure Container Registry
 
 An Azure Container Registry (ACR) instance was deployed to provide a private container image repository for Container Apps and Azure Kubernetes Service (AKS).
@@ -33,6 +53,8 @@ An Azure Container Registry (ACR) instance was deployed to provide a private con
 - SKU: Basic
 - Authentication: Azure AD
 - Purpose: Container image storage and distribution
+
+
 ## Phase 3 – Azure Container Apps
 
 ### Objective
@@ -74,6 +96,26 @@ Resolution:
 - Created replacement environment `cae-ai-platform-v2`
 - Redeployed application
 - Verified successful application availability
+
+## Solution Architecture
+
+The platform consists of multiple Azure services working together to provide a secure and scalable AI application foundation.
+
+![Architecture Overview](screenshots/24-complete-architecture-overview.png)
+
+### Architecture Components
+
+| Service | Purpose |
+|----------|----------|
+| Azure Container Apps | Application Hosting |
+| Azure Container Registry | Container Image Storage |
+| Azure Key Vault | Secret Management |
+| Azure Cosmos DB | Data Storage |
+| Managed Identity | Authentication |
+| Log Analytics | Monitoring |
+| Resource Group | Resource Organization |
+
+
 
 ### Skills Demonstrated
 
@@ -143,8 +185,144 @@ This allows the application to securely retrieve secrets without storing credent
 - Centralized secret management
 - Production-ready Azure security pattern
 
-### Skills Demonstrated
+## Phase 5 – Azure Cosmos DB
 
+### Objective
+
+Deploy a globally distributed NoSQL database to support AI application data storage and retrieval.
+
+### Components Created
+
+- Cosmos DB Account
+- SQL Database
+- Container
+- Connection String Secret
+- Key Vault Integration
+
+### Configuration
+
+| Setting | Value |
+|----------|----------|
+| API | NoSQL |
+| Capacity Mode | Serverless |
+| Region | East US |
+| Backup Policy | Periodic |
+| Authentication | Key-Based |
+
+### Database Creation
+
+![Cosmos DB Overview](screenshots/19-cosmosdb-overview.png)
+
+### Database
+
+Database Name:
+
+ai-platform-db
+
+![Database Created](screenshots/20-cosmosdb-database-created.png)
+
+### Container
+
+Container Name:
+
+chat-history
+
+Partition Key:
+
+/partitionKey
+
+![Container Created](screenshots/21-cosmosdb-container-created.png)
+
+### Secure Secret Storage
+
+Cosmos DB connection strings were stored securely in Azure Key Vault.
+
+![Cosmos DB Keys](screenshots/22-cosmosdb-keys.png)
+
+![Key Vault Cosmos Secret](screenshots/23-keyvault-cosmos-secret.png)
+
+## Security Architecture
+
+The platform implements a Zero Trust security model.
+
+### Security Controls
+
+- Managed Identity Authentication
+- Azure RBAC Authorization
+- Key Vault Secret Storage
+- No Hardcoded Credentials
+- Encrypted Communications
+- Azure AD Integration
+
+### Authentication Flow
+
+Container App
+↓
+Managed Identity
+↓
+Azure RBAC
+↓
+Azure Key Vault
+↓
+Cosmos DB Credentials
+
+### Benefits
+
+- Eliminates credential sprawl
+- Reduces attack surface
+- Supports enterprise compliance
+- Enables secret rotation
+
+## Skills Demonstrated
+
+### Cloud Platforms
+
+- Microsoft Azure
+
+### Compute
+
+- Azure Container Apps
+- Containerized Applications
+
+### Containers
+
+- Docker
+- Azure Container Registry
+
+### Security
+
+- Azure Key Vault
+- Managed Identity
+- RBAC
+- Secret Management
+
+### Databases
+
+- Azure Cosmos DB
+- NoSQL
+
+### Monitoring
+
+- Log Analytics
+- Azure Monitoring
+
+### DevOps
+
+- Git
+- GitHub
+- CI/CD Concepts
+
+### Architecture
+
+- Cloud Architecture Design
+- Resource Visualization
+- Production Deployments
+
+- Azure Cosmos DB
+- NoSQL Database Design
+- Serverless Databases
+- Secure Secret Management
+- Cloud Data Architecture
 - Azure Key Vault
 - Managed Identity
 - RBAC
