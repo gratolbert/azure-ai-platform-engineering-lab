@@ -273,6 +273,36 @@ Cosmos DB Credentials
 - Supports enterprise compliance
 - Enables secret rotation
 
+## Phase 6 – Azure Service Bus
+
+### Objective
+
+Implement asynchronous messaging using Azure Service Bus.
+
+### Components
+
+- Service Bus Namespace
+- Queue
+- Message Processing Workflow
+
+### Queue
+
+chat-processing
+
+### Benefits
+
+- Loose coupling
+- Event-driven architecture
+- Reliable messaging
+- Cloud-native scalability
+
+### Skills Demonstrated
+
+- Azure Service Bus
+- Messaging Systems
+- Event-Driven Design
+- Cloud Integrations
+
 ## Skills Demonstrated
 
 ### Cloud Platforms
