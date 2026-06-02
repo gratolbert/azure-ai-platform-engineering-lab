@@ -6,7 +6,7 @@
 
 ![Azure](https://img.shields.io/badge/Azure-AI%20Platform-blue)
 ![Containers](https://img.shields.io/badge/Containers-AKS%20%7C%20ACA-green)
-![Status](https://img.shields.io/badge/Status-In%20Progress-yellow)
+![Status](https://img.shields.io/badge/Status-Phase%207%20Complete-success)
 ![AI](https://img.shields.io/badge/AI-Vector%20Search-orange)
 
 ## Executive Summary
@@ -23,6 +23,21 @@ The solution follows Azure Well-Architected Framework principles emphasizing:
 - Cost Optimization
 - Performance Efficiency
 
+## Table of Contents
+
+- Executive Summary
+- Solution Architecture
+- Technologies Used
+- Phase 3 – Container Apps
+- Phase 4 – Managed Identity & Key Vault
+- Phase 5 – Cosmos DB
+- Phase 6 – Service Bus
+- Phase 7 – Azure Functions & Identity
+- Security Architecture
+- Skills Demonstrated
+- Resume Value
+- Future Enhancements
+
 ## Overview
 
 This project demonstrates the design and deployment of an Azure AI platform using modern cloud-native services.
@@ -31,19 +46,37 @@ The lab covers:
 
 - Azure Container Registry (ACR)
 - Azure Container Apps
-- Azure Kubernetes Service (AKS)
-- Azure Cosmos DB Vector Search
-- PostgreSQL pgvector
-- Azure Managed Redis
 - Azure Service Bus
-- Azure Event Grid
 - Azure Functions
+- Azure Cosmos DB
 - Azure Key Vault
-- Managed Identities
-- OpenTelemetry
+- Managed Identity
+- Azure RBAC
 - Azure Monitor
+- Log Analytics
+- Application Insights
 
+## Technologies Used
 
+### Azure Services
+
+- Azure Container Registry
+- Azure Container Apps
+- Azure Functions
+- Azure Service Bus
+- Azure Cosmos DB
+- Azure Key Vault
+- Managed Identity
+- Azure Monitor
+- Log Analytics
+- Application Insights
+
+### Development Tools
+
+- Docker
+- Git
+- GitHub
+- Azure Portal
 ## Azure Container Registry
 
 An Azure Container Registry (ACR) instance was deployed to provide a private container image repository for Container Apps and Azure Kubernetes Service (AKS).
@@ -101,7 +134,45 @@ Resolution:
 
 The platform consists of multiple Azure services working together to provide a secure and scalable AI application foundation.
 
-![Architecture Overview](screenshots/24-complete-architecture-overview.png)
+
+GitHub
+   │
+   ▼
+Azure Container Registry
+   │
+   ▼
+Azure Container App
+   │
+   ├── Managed Identity
+   │
+   ├── Azure Key Vault
+   │
+   ▼
+Azure OpenAI
+
+Azure Service Bus
+   │
+   ▼
+Azure Function App
+   │
+   ├── Managed Identity
+   │
+   ▼
+Azure Cosmos DB
+
+Application Insights
+   │
+   ▼
+Log Analytics
+```
+
+![Complete Architecture](screenshots/39-complete-ai-platform-architecture.png)
+
+### Azure Resource Visualizer
+
+Azure Resource Visualizer was used to validate resource relationships and dependency mapping across the platform.
+
+![Resource Visualizer](screenshots/41-resource-visualizer.png)
 
 ### Architecture Components
 
@@ -171,7 +242,7 @@ Assigned:
 
 | Role | Principal |
 |--------|-----------|
-| Key Vault Secrets User | cae-ai-platform-v2 |
+| Key Vault Secrets User | func-ai-platform-grant01 |
 
 This allows the application to securely retrieve secrets without storing credentials in code.
 
@@ -303,7 +374,40 @@ chat-processing
 - Event-Driven Design
 - Cloud Integrations
 
-## Skills Demonstrated
+## Phase 7 – Azure Functions and Identity Integration
+
+### Objective
+
+Implement serverless compute using Azure Functions and secure resource access using Managed Identity.
+
+### Components Created
+
+- Azure Function App
+- Application Insights
+- Storage Account
+- Function App Managed Identity
+
+### Security Configuration
+
+Assigned:
+
+- Azure Service Bus Data Receiver
+- Key Vault Secrets User
+
+### Benefits
+
+- Event-driven processing
+- Serverless execution
+- Secretless authentication
+- Enterprise RBAC model
+
+### Validation
+
+![Function App Overview](screenshots/40-function-app-overview.png)
+
+![Function Managed Identity](screenshots/35-functionapp-managed-identity.png)
+
+![Key Vault Role Assignment](screenshots/37-keyvault-role-assignment-complete.png)
 
 ### Cloud Platforms
 
@@ -348,6 +452,7 @@ chat-processing
 - Resource Visualization
 - Production Deployments
 
+### Advanced Skills Demonstrated
 - Azure Cosmos DB
 - NoSQL Database Design
 - Serverless Databases
@@ -358,3 +463,52 @@ chat-processing
 - RBAC
 - Zero-Trust Security
 - Secretless Authentication
+
+## Skills Matrix
+
+| Category | Skills |
+|-----------|---------|
+| Compute | Container Apps, Azure Functions |
+| Security | Key Vault, RBAC, Managed Identity |
+| Messaging | Service Bus |
+| Databases | Cosmos DB |
+| Monitoring | Application Insights, Log Analytics |
+| DevOps | Git, GitHub |
+| Cloud | Microsoft Azure |
+
+## Project Outcomes
+
+- Deployed 8+ Azure services
+- Implemented 2 managed identities
+- Eliminated hardcoded credentials
+- Secured secrets using RBAC authorization
+- Built event-driven messaging architecture
+- Integrated centralized monitoring and logging
+
+## Resume Value
+
+This project demonstrates:
+
+- Azure Container Apps
+- Azure Functions
+- Azure Service Bus
+- Azure Cosmos DB
+- Azure Key Vault
+- Managed Identity
+- Azure RBAC
+- Application Insights
+- Log Analytics
+- Event-Driven Architecture
+- Serverless Computing
+- Cloud-Native Security
+- Production Troubleshooting
+
+## Future Enhancements
+
+- Service Bus Trigger Functions
+- Cosmos DB Document Processing
+- Azure OpenAI Chat Integration
+- Vector Search
+- Terraform Deployment Automation
+- GitHub Actions CI/CD
+- Infrastructure as Code
