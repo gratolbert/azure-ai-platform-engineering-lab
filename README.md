@@ -409,6 +409,37 @@ Assigned:
 
 ![Key Vault Role Assignment](screenshots/37-keyvault-role-assignment-complete.png)
 
+## Phase 8 – Azure Functions and Azure OpenAI Integration
+
+### Objective
+
+Build a serverless AI-powered API using Azure Functions and Azure OpenAI.
+
+### Components
+
+* Azure Function App (Python 3.12)
+* Azure OpenAI GPT-4.1-mini
+* Azure AI Foundry
+* Azure CLI
+* Azure Functions Core Tools
+
+### Solution
+
+A Python-based HTTP-triggered Azure Function was developed and deployed to Azure. The function accepts IT support ticket text, submits the content to Azure OpenAI, and returns an AI-generated summary.
+
+### Validation
+
+* Local Function execution successful
+* Azure OpenAI connectivity validated
+* GPT-4.1-mini deployment validated
+* Function App deployment successful
+* Cloud endpoint tested successfully
+
+### Result
+
+The solution demonstrates serverless AI integration using Azure-native services and provides a reusable pattern for automated ticket summarization, incident enrichment, and AI-assisted operations workflows.
+
+
 ### Cloud Platforms
 
 - Microsoft Azure
