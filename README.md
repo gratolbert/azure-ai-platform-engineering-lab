@@ -164,7 +164,8 @@ Application Insights
    │
    ▼
 Log Analytics
-```
+
+---
 
 ![Complete Architecture](screenshots/39-complete-ai-platform-architecture.png)
 
