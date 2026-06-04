@@ -204,7 +204,6 @@ Implement secure secret management using Azure Key Vault and System Assigned Man
 
 ### Architecture
 
-```text
 Container App
       │
 Managed Identity
@@ -214,7 +213,6 @@ RBAC Authorization
 Azure Key Vault
       │
 Application Secrets
-```
 
 ### Managed Identity Configuration
 
