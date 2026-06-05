@@ -453,9 +453,9 @@ A Python-based HTTP-triggered Azure Function was developed and deployed to Azure
 
 ![Environment Variables](screenshots/52-function-environment-variables.png)
 
-![Deployment Success](screenshots/55-function-deployment-success.png)
+![Deployment Success](screenshots/55-function-publish-success.png)
 
-![Cloud Function Test](screenshots/56-function-api-test-success.png)
+![Cloud Function Test](screenshots/56-cloud-function-test.png)
 
 
 
