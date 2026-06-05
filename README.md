@@ -614,9 +614,7 @@ Successfully deployed a production-style AI microservice on Azure that exposes A
 
 ![Local Container Success](78-fastapi-health-endpoint-success.png)
 
-![Local Container Success](79-fastapi-summarization-endpoint-success.png)
 
-![Local Container Success](80-container-app-healthy-revision.png)
 
 ### Cloud Platforms
 
