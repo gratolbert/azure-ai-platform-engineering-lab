@@ -6,7 +6,7 @@
 
 ![Azure](https://img.shields.io/badge/Azure-AI%20Platform-blue)
 ![Containers](https://img.shields.io/badge/Containers-AKS%20%7C%20ACA-green)
-![Status](https://img.shields.io/badge/Status-Phase%2014%20Complete-success)
+![Status](https://img.shields.io/badge/Status-Phase%2015%20Complete-success)
 ![AI](https://img.shields.io/badge/AI-Vector%20Search-orange)
 
 ## Executive Summary
@@ -22,6 +22,9 @@ The solution follows Azure Well-Architected Framework principles emphasizing:
 - Operational Excellence
 - Cost Optimization
 - Performance Efficiency
+- FastAPI AI Microservice
+- Azure OpenAI Ticket Summarization API
+- Dockerized REST API Deployment
 
 ## Table of Contents
 
@@ -35,6 +38,7 @@ The solution follows Azure Well-Architected Framework principles emphasizing:
 - Phase 7 – Azure Functions & Identity
 - Phase 8 – Azure OpenAI
 - Phase 9 – Containerization and Azure Container Apps
+- Phase 10 – FastAPI AI Microservice
 - Security Architecture
 - Skills Demonstrated
 - Resume Value
@@ -60,6 +64,12 @@ The lab covers:
 
 ## Technologies Used
 
+### Application Frameworks
+
+- FastAPI
+- Pydantic
+
+
 ### Azure Services
 
 - Azure Container Registry
@@ -74,6 +84,7 @@ The lab covers:
 - Application Insights
 - Azure OpenAI
 - Azure AI Foundry
+
 
 ### Development Tools
 
@@ -149,11 +160,8 @@ GitHub
 Azure Container Registry
    │
    ▼
-Azure Container App
-   │
-   ├── Managed Identity
-   │
-   ├── Azure Key Vault
+Azure Container Apps
+(FastAPI API)
    │
    ▼
 Azure OpenAI
@@ -161,9 +169,7 @@ Azure OpenAI
 Azure Service Bus
    │
    ▼
-Azure Function App
-   │
-   ├── Managed Identity
+Azure Functions
    │
    ▼
 Azure Cosmos DB
@@ -501,6 +507,95 @@ This behavior validated the container image and Azure OpenAI integration while d
 
 Successfully demonstrated containerization, Azure Container Registry integration, managed identity authentication, Azure RBAC authorization, and Azure Container Apps deployment workflows while validating Azure OpenAI functionality from a containerized environment.
 
+## Phase 10 – FastAPI AI Microservice Deployment
+
+### Objective
+
+Build and deploy a production-style AI-powered REST API using FastAPI, Azure OpenAI, Docker, Azure Container Registry, and Azure Container Apps.
+
+### Components
+
+* FastAPI
+* Azure OpenAI
+* Docker
+* Azure Container Registry (ACR)
+* Azure Container Apps
+* Azure CLI
+* Azure AI Foundry
+
+### Solution
+
+A FastAPI-based microservice was developed to expose Azure OpenAI capabilities through a secure REST API.
+
+The service accepts IT support ticket text through an HTTP POST endpoint and returns AI-generated ticket summaries using Azure OpenAI.
+
+The application was containerized using Docker, stored in Azure Container Registry, and deployed to Azure Container Apps with external HTTPS ingress enabled.
+
+### API Endpoints
+
+#### Health Endpoint
+
+```http
+GET /
+```
+
+Response:
+
+```json
+{
+  "status": "healthy"
+}
+```
+
+#### Ticket Summarization Endpoint
+
+```http
+POST /summarize
+```
+
+Example Request:
+
+```json
+{
+  "text": "User cannot connect to VPN after password reset and receives MFA errors."
+}
+```
+
+Example Response:
+
+```json
+{
+  "summary": "User is unable to connect to VPN following a password reset and is encountering MFA authentication issues."
+}
+```
+
+### Validation
+
+* FastAPI application developed successfully
+* Docker image built successfully
+* Image pushed to Azure Container Registry
+* Azure Container App deployed successfully
+* Public HTTPS endpoint validated
+* Azure OpenAI integration validated
+* AI ticket summarization validated
+* Health endpoint validated
+
+### Skills Demonstrated
+
+* FastAPI Development
+* REST API Design
+* Azure OpenAI Integration
+* Docker Containerization
+* Azure Container Registry
+* Azure Container Apps
+* Cloud-Native Application Deployment
+* AI Platform Engineering
+
+### Result
+
+Successfully deployed a production-style AI microservice on Azure that exposes Azure OpenAI functionality through a containerized REST API architecture.
+
+
 ### Screenshots
 
 ![Docker Version](screenshots/57-docker-version-validation.png)
@@ -516,6 +611,12 @@ Successfully demonstrated containerization, Azure Container Registry integration
 ![Revision Diagnostics](screenshots/69-container-app-revision-diagnostics.png)
 
 ![Local Container Success](screenshots/70-local-container-successful-execution.png)
+
+![Local Container Success](78-fastapi-health-endpoint-success.png)
+
+![Local Container Success](79-fastapi-summarization-endpoint-success.png)
+
+![Local Container Success](80-container-app-healthy-revision.png)
 
 ### Cloud Platforms
 
@@ -574,24 +675,24 @@ Successfully demonstrated containerization, Azure Container Registry integration
 
 ## Skills Matrix
 
-| Category | Skills |
-|-----------|---------|
-| Compute | Container Apps, Azure Functions |
-| Security | Key Vault, RBAC, Managed Identity |
-| Messaging | Service Bus |
-| Databases | Cosmos DB |
+| Category   | Skills                              |
+|----------- |-------------------------------------|
+| Compute    | Container Apps, Azure Functions     |
+| Security   | Key Vault, RBAC, Managed Identity   |
+| Messaging  | Service Bus                         |
+| Databases  | Cosmos DB                           |
 | Monitoring | Application Insights, Log Analytics |
-| DevOps | Git, GitHub |
-| Cloud | Microsoft Azure |
+| DevOps     | Git, GitHub, Docker                         |
+| Cloud      | Microsoft Azure                     |
+| Compute    | Container Apps, Azure Functions     |
 
 ## Project Outcomes
 
--- Deployed 12+ Azure services
-- Implemented Azure OpenAI integration
-- Built and deployed containerized workloads
-- Implemented managed identity authentication
-- Integrated Azure Functions with Azure OpenAI
-- Performed container deployment troubleshooting
+- Deployed 12+ Azure services
+- Developed and deployed a FastAPI AI microservice
+- Integrated Azure OpenAI into serverless and containerized workloads
+- Built and published Docker images to Azure Container Registry
+- Deployed production-style REST APIs to Azure Container Apps
 
 ## Resume Value
 
@@ -617,15 +718,18 @@ This project demonstrates:
 - Azure CLI
 - AI Platform Engineering
 - Containerized Workloads
+- FastAPI
+- REST API Development
+- Docker Containerization
+- Azure Container Registry
+- Azure Container Apps
+- Azure OpenAI Integration
+- AI Microservices
 
 ## Future Enhancements
 
-- FastAPI AI Service
-- GitHub Actions CI/CD
-- Service Bus Trigger Functions
-- Cosmos DB Document Processing
-- Azure OpenAI Chat Integration
-- Vector Search
-- Terraform Deployment Automation
-- GitHub Actions CI/CD
-- Infrastructure as Code
+- GitHub Actions Container CI/CD Pipeline
+- Automated ACR Image Builds
+- Automated Azure Container Apps Deployments
+- API Authentication and Authorization
+- OpenAPI / Swagger Documentation
