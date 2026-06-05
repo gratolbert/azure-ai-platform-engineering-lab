@@ -6,14 +6,14 @@
 
 ![Azure](https://img.shields.io/badge/Azure-AI%20Platform-blue)
 ![Containers](https://img.shields.io/badge/Containers-AKS%20%7C%20ACA-green)
-![Status](https://img.shields.io/badge/Status-Phase%207%20Complete-success)
+![Status](https://img.shields.io/badge/Status-Phase%2014%20Complete-success)
 ![AI](https://img.shields.io/badge/AI-Vector%20Search-orange)
 
 ## Executive Summary
 
 This project demonstrates the deployment of a secure cloud-native AI platform on Microsoft Azure.
 
-The platform leverages Azure Container Apps for application hosting, Azure Container Registry for image management, Azure Key Vault for secret storage, Azure Cosmos DB for scalable NoSQL data persistence, Managed Identity for credential-free authentication, and Log Analytics for operational monitoring.
+Production-style Azure AI Platform demonstrating secure cloud-native application deployment using Azure OpenAI, Azure Functions, Azure Container Apps, Azure Container Registry, Cosmos DB, Key Vault, Managed Identity, Service Bus, and Azure Monitoring.
 
 The solution follows Azure Well-Architected Framework principles emphasizing:
 
@@ -33,6 +33,8 @@ The solution follows Azure Well-Architected Framework principles emphasizing:
 - Phase 5 – Cosmos DB
 - Phase 6 – Service Bus
 - Phase 7 – Azure Functions & Identity
+- Phase 8 – Azure OpenAI
+- Phase 9 – Containerization and Azure Container Apps
 - Security Architecture
 - Skills Demonstrated
 - Resume Value
@@ -70,6 +72,8 @@ The lab covers:
 - Azure Monitor
 - Log Analytics
 - Application Insights
+- Azure OpenAI
+- Azure AI Foundry
 
 ### Development Tools
 
@@ -77,6 +81,10 @@ The lab covers:
 - Git
 - GitHub
 - Azure Portal
+- Azure CLI
+- Azure Functions Core Tools
+
+
 ## Azure Container Registry
 
 An Azure Container Registry (ACR) instance was deployed to provide a private container image repository for Container Apps and Azure Kubernetes Service (AKS).
@@ -433,10 +441,81 @@ A Python-based HTTP-triggered Azure Function was developed and deployed to Azure
 * Function App deployment successful
 * Cloud endpoint tested successfully
 
+![Function App Overview](screenshots/50-function-app-overview.png)
+
+![Managed Identity](screenshots/51-function-managed-identity.png)
+
+![Environment Variables](screenshots/52-function-environment-variables.png)
+
+![Deployment Success](screenshots/55-function-deployment-success.png)
+
+![Cloud Function Test](screenshots/56-function-api-test-success.png)
+
+
+
 ### Result
 
 The solution demonstrates serverless AI integration using Azure-native services and provides a reusable pattern for automated ticket summarization, incident enrichment, and AI-assisted operations workflows.
 
+## Phase 9 – Containerization and Azure Container Apps
+
+### Objective
+
+Containerize the Azure OpenAI test application and deploy it using Azure Container Registry (ACR) and Azure Container Apps.
+
+### Components
+
+- Docker Desktop
+- Azure Container Registry (ACR)
+- Azure Container Apps
+- Azure Managed Identity
+- Azure RBAC
+- Azure OpenAI
+- Azure CLI
+
+### Solution
+
+A Python-based Azure OpenAI test application was containerized using Docker and built into a reusable container image. The image was tagged and pushed to Azure Container Registry, then deployed to Azure Container Apps using a system-assigned managed identity for secure image access.
+
+The deployment process included configuring registry authentication, assigning the AcrPull role, and validating Azure OpenAI connectivity from within the containerized workload.
+
+### Validation
+
+- Docker image built successfully
+- Local container execution successful
+- Azure Container Registry authentication successful
+- Container image pushed to ACR successfully
+- Managed Identity configured
+- AcrPull role assigned
+- Azure Container App configured to use custom container image
+- Azure OpenAI connectivity validated from containerized application
+
+
+### Troubleshooting
+
+Container App revision diagnostics revealed that the containerized application was implemented as a one-time execution script rather than a long-running service. The application successfully authenticated to Azure OpenAI, generated a response, and exited normally.
+
+This behavior validated the container image and Azure OpenAI integration while demonstrating the operational differences between short-lived container workloads and continuously running containerized services.
+
+### Result
+
+Successfully demonstrated containerization, Azure Container Registry integration, managed identity authentication, Azure RBAC authorization, and Azure Container Apps deployment workflows while validating Azure OpenAI functionality from a containerized environment.
+
+### Screenshots
+
+![Docker Version](screenshots/57-docker-version-validation.png)
+
+![Docker Build Success](screenshots/60-docker-build-success.png)
+
+![ACR Login](screenshots/62-acr-login-success.png)
+
+![Image Push](screenshots/64-acr-image-pushed.png)
+
+![Container App Image](screenshots/68-container-app-running-custom-image.png)
+
+![Revision Diagnostics](screenshots/69-container-app-revision-diagnostics.png)
+
+![Local Container Success](screenshots/70-local-container-successful-execution.png)
 
 ### Cloud Platforms
 
@@ -507,12 +586,12 @@ The solution demonstrates serverless AI integration using Azure-native services 
 
 ## Project Outcomes
 
-- Deployed 8+ Azure services
-- Implemented 2 managed identities
-- Eliminated hardcoded credentials
-- Secured secrets using RBAC authorization
-- Built event-driven messaging architecture
-- Integrated centralized monitoring and logging
+-- Deployed 12+ Azure services
+- Implemented Azure OpenAI integration
+- Built and deployed containerized workloads
+- Implemented managed identity authentication
+- Integrated Azure Functions with Azure OpenAI
+- Performed container deployment troubleshooting
 
 ## Resume Value
 
@@ -531,9 +610,18 @@ This project demonstrates:
 - Serverless Computing
 - Cloud-Native Security
 - Production Troubleshooting
+- Azure OpenAI
+- Azure AI Foundry
+- Azure Container Registry
+- Docker
+- Azure CLI
+- AI Platform Engineering
+- Containerized Workloads
 
 ## Future Enhancements
 
+- FastAPI AI Service
+- GitHub Actions CI/CD
 - Service Bus Trigger Functions
 - Cosmos DB Document Processing
 - Azure OpenAI Chat Integration
