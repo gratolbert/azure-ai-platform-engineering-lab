@@ -671,35 +671,83 @@ Troubleshooting involved:
 
 The issue was resolved by updating the Azure Container App environment variable with the current Azure OpenAI API key, triggering a new deployment revision.
 
-## Phase 11 – Observability & Monitoring
+## Phase 12 – Observability & Monitoring
 
-Implemented enterprise-grade monitoring and observability for the Azure AI Platform.
+Implemented enterprise-grade observability and monitoring capabilities for the Azure AI Platform.
 
-### Services
+### Monitoring Stack
 
 * Azure Monitor
 * Application Insights
 * Log Analytics Workspace
-* Container App Logging
-* Alert Rules
-* Operational Dashboard
+* Azure Container Apps Logging
+* Azure Alert Rules
+* Operational Dashboards
 
-### Monitoring Features
+### Features
 
-* Request monitoring
-* Application health monitoring
-* Failed request detection
 * Centralized log aggregation
-* Performance metrics
+* Application health monitoring
+* Request monitoring
+* Failed request detection
+* Performance tracking
 * Operational alerting
+* Cloud-native observability architecture
+
+### Validation
+
+Verified:
+
+* Container App startup logs
+* HTTP request logging
+* FastAPI endpoint execution
+* Azure Monitor integration
+* Application Insights workspace connectivity
+* Alert rule deployment
 
 ### Screenshots
 
-* Application Insights Overview
-* Log Analytics Workspace
-* Container App Logs
-* Alert Rule Configuration
-* Operations Dashboard
+| Screenshot | Description                            |
+| ---------- | -------------------------------------- |
+| 93         | Monitoring Initial State               |
+| 94         | Log Analytics Workspace Discovery      |
+| 95         | Container App Log Analytics Connection |
+| 96         | Application Insights Creation          |
+| 97         | Logs Workspace                         |
+| 98         | Application Insights Tables            |
+| 99         | Telemetry Validation                   |
+| 100        | Alert Rule Configuration               |
+| 101        | Alert Rule Review                      |
+| 102        | Alerts Dashboard                       |
+| 103        | Operations Dashboard                   |
+
+### Architecture
+
+FastAPI Application → Azure OpenAI → Container Apps → Application Insights → Log Analytics → Azure Monitor → Alert Rules
+
+### Screenshots
+
+![Monitoring Initial State](screenshots/93-application-insights-not-found.png)
+
+![Log Analytics Workspace Discovery](screenshots/94-log-analytics-workspaces-discovered.png)
+
+![Container App Log Analytics Connection](screenshots/95-container-app-log-analytics-linked.png)
+
+![Application Insights Creation ](screenshots/96-application-insights-created.png)
+
+![Logs Workspace](screenshots/97-application-insights-logs-workspace.png)
+
+![Application Insights Tables](screenshots/98-application-insights-tables.png)
+
+![Telemetry Validation](screenshots/99-no-request-telemetry-yet.png)
+
+![Alert Rule Configuration](screenshots/100-alert-rule-condition.png)
+
+![Alert Rule Review](screenshots/101-alert-rule-review.png)
+
+![Alerts Dashboard](screenshots/102-alerts-dashboard.png)
+
+![Operations Dashboard](screenshots/103-ai-platform-operations-dashboard.png)
 
 
 ### Cloud Platforms
