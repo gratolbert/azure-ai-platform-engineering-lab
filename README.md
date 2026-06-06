@@ -671,6 +671,36 @@ Troubleshooting involved:
 
 The issue was resolved by updating the Azure Container App environment variable with the current Azure OpenAI API key, triggering a new deployment revision.
 
+## Phase 11 – Observability & Monitoring
+
+Implemented enterprise-grade monitoring and observability for the Azure AI Platform.
+
+### Services
+
+* Azure Monitor
+* Application Insights
+* Log Analytics Workspace
+* Container App Logging
+* Alert Rules
+* Operational Dashboard
+
+### Monitoring Features
+
+* Request monitoring
+* Application health monitoring
+* Failed request detection
+* Centralized log aggregation
+* Performance metrics
+* Operational alerting
+
+### Screenshots
+
+* Application Insights Overview
+* Log Analytics Workspace
+* Container App Logs
+* Alert Rule Configuration
+* Operations Dashboard
+
 
 ### Cloud Platforms
 
