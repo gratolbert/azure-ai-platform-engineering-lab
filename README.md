@@ -614,6 +614,63 @@ Successfully deployed a production-style AI microservice on Azure that exposes A
 
 ![Local Container Success](screenshots/83-fastapi-health-endpoint-success.png)
 
+## Phase 11 – GitHub Actions CI/CD Pipeline
+
+### Objective
+Automate containerized application deployments using GitHub Actions.
+
+### Technologies
+- GitHub Actions
+- Azure Container Registry (ACR)
+- Azure Container Apps
+- Docker
+- Azure Service Principal Authentication
+
+### Pipeline Workflow
+
+Developer Push
+↓
+GitHub Actions
+↓
+Build Docker Image
+↓
+Push to Azure Container Registry
+↓
+Deploy New Container App Revision
+
+### Outcomes
+- Automated build process
+- Automated container image publishing
+- Automated deployment to Azure Container Apps
+- Secure secret management through GitHub Repository Secrets
+- Production-ready CI/CD workflow
+
+### Evidence
+
+| Screenshot | Description |
+|------------|-------------|
+| 86 | GitHub Actions pipeline completed successfully |
+| 87 | Production deployment workflow |
+| 88 | Container App running after automated deployment |
+| 89 | New revision created via GitHub Actions |
+| 90 | Container image published to ACR |
+| 91 | Health endpoint validation |
+| 92 | Azure OpenAI summarization endpoint validation |
+
+### Lessons Learned
+
+During deployment validation, Azure OpenAI authentication failures were traced to an outdated API key stored within Azure Container Apps environment variables. After rotating Azure OpenAI keys, dependent workloads must be updated and redeployed to consume the new credential.
+
+Troubleshooting involved:
+
+* GitHub Actions pipeline validation
+* Azure Container Apps revision analysis
+* Container log inspection
+* FastAPI exception tracing
+* Azure OpenAI authentication diagnostics
+
+The issue was resolved by updating the Azure Container App environment variable with the current Azure OpenAI API key, triggering a new deployment revision.
+
 
 ### Cloud Platforms
 
